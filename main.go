@@ -51,6 +51,10 @@ func main() {
 
 		for _, d := range ds {
 
+			output.WriteString(fmt.Sprintf("func With%s() *%s { \n", d.Name, d.Name))
+			output.WriteString(fmt.Sprintf("\treturn &%s{}\n", d.Name))
+			output.WriteString("}\n")
+
 			for _, field := range d.Fields {
 				if field.IsPrivate() && d.Getter {
 					output.WriteString(fmt.Sprintf("func (self *%s) Get%s() %s { \n", d.Name, field.GetName(), field.Type))

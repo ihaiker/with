@@ -66,7 +66,7 @@ func main() {
 					//public func
 					output.WriteString(fmt.Sprintf("func With%s%s(%s %s) *%s { \n",
 						d.Name, field.GetName(), field.GetName(), field.Type, d.Name))
-					output.WriteString(fmt.Sprintf("\treturn %s{}.With%s(%s) \n", d.Name, field.GetName(), field.GetName()))
+					output.WriteString(fmt.Sprintf("\treturn With%s().With%s(%s) \n", d.Name, field.GetName(), field.GetName()))
 					output.WriteString("}\n")
 
 					//struct func
